@@ -3,7 +3,7 @@
 <title>Static Call Graph - [f1\f1.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image f1\f1.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Sat Apr 19 17:26:34 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Sat Apr 19 18:41:10 2025
 <BR><P>
 <H3>Maximum Stack Usage =        324 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -834,7 +834,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[85]"></a>IIC_Read_Byte</STRONG> (Thumb, 454 bytes, Stack size 32 bytes, sht40.o(.text.IIC_Read_Byte))
+<P><STRONG><a name="[85]"></a>IIC_Read_Byte</STRONG> (Thumb, 502 bytes, Stack size 32 bytes, sht40.o(.text.IIC_Read_Byte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = IIC_Read_Byte &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
@@ -856,7 +856,7 @@ Global Symbols
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Write_Command
 </UL>
 
-<P><STRONG><a name="[87]"></a>IIC_Wait_Ack</STRONG> (Thumb, 182 bytes, Stack size 32 bytes, sht40.o(.text.IIC_Wait_Ack))
+<P><STRONG><a name="[87]"></a>IIC_Wait_Ack</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, sht40.o(.text.IIC_Wait_Ack))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = IIC_Wait_Ack &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
@@ -868,7 +868,7 @@ Global Symbols
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Write_Command
 </UL>
 
-<P><STRONG><a name="[88]"></a>IIC_Write_Command</STRONG> (Thumb, 204 bytes, Stack size 48 bytes, sht40.o(.text.IIC_Write_Command))
+<P><STRONG><a name="[88]"></a>IIC_Write_Command</STRONG> (Thumb, 226 bytes, Stack size 48 bytes, sht40.o(.text.IIC_Write_Command))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = IIC_Write_Command &rArr; IIC_Wait_Ack &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
@@ -880,11 +880,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHT40_Start_Measurement
 </UL>
 
-<P><STRONG><a name="[89]"></a>LED_ErrorCode</STRONG> (Thumb, 216 bytes, Stack size 8 bytes, main.o(.text.LED_ErrorCode))
+<P><STRONG><a name="[89]"></a>LED_ErrorCode</STRONG> (Thumb, 292 bytes, Stack size 8 bytes, main.o(.text.LED_ErrorCode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LED_ErrorCode &rArr; HAL_Delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -935,7 +935,7 @@ Global Symbols
 <P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(.text.PendSV_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[90]"></a>SHT40_Read_Measurement</STRONG> (Thumb, 374 bytes, Stack size 56 bytes, sht40.o(.text.SHT40_Read_Measurement))
+<P><STRONG><a name="[90]"></a>SHT40_Read_Measurement</STRONG> (Thumb, 422 bytes, Stack size 56 bytes, sht40.o(.text.SHT40_Read_Measurement))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = SHT40_Read_Measurement &rArr; IIC_Wait_Ack &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
@@ -948,7 +948,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[91]"></a>SHT40_Start_Measurement</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, sht40.o(.text.SHT40_Start_Measurement))
+<P><STRONG><a name="[91]"></a>SHT40_Start_Measurement</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, sht40.o(.text.SHT40_Start_Measurement))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = SHT40_Start_Measurement &rArr; IIC_Write_Command &rArr; IIC_Wait_Ack &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
@@ -997,7 +997,7 @@ Global Symbols
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Read_Byte
 </UL>
 
-<P><STRONG><a name="[48]"></a>main</STRONG> (Thumb, 524 bytes, Stack size 80 bytes, main.o(.text.main))
+<P><STRONG><a name="[48]"></a>main</STRONG> (Thumb, 560 bytes, Stack size 80 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220 + Unknown Stack Size
 <LI>Call Chain = main &rArr; DS18B20_Get_Temp &rArr; DS18B20_Read_Byte &rArr; HAL_GPIO_Init
 </UL>
@@ -1005,11 +1005,11 @@ Global Symbols
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Get_Temp
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHT40_Read_Measurement
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SHT40_Start_Measurement
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_ErrorCode
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Init
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
