@@ -45,6 +45,8 @@
 #define DS18B20_INIT_FAILED		1
 #define ERR_UART_TIMEOUT			2
 #define ERR_UART_ERROR				3
+#define ERR_I2C_TIMEOUT_1			4
+#define ERR_I2C_TIMEOUT_2			5
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -125,6 +127,14 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+//	// IIC TEST
+//	while(1)
+//	{
+//		IIC_Send_Byte(0x03);
+//		HAL_Delay(2000);
+//	}
+	
+	HAL_GPIO_WritePin(EN_GPIO_Port, EN_Pin, GPIO_PIN_SET);
 
 	while(DS18B20_Init())
 	{
@@ -144,9 +154,20 @@ int main(void)
 			// 打开LED
 			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 			
+			uint8_t sht40ret = 0;
 			// SHT40 测量温湿度数据
-			SHT40_Start_Measurement();
-			SHT40_Read_Measurement((uint8_t*)sensor1DataBuffer,6);
+			sht40ret = SHT40_Start_Measurement();
+			if(sht40ret)
+			{
+				flagErrorCode = ERR_I2C_TIMEOUT_1;
+				break;
+			}
+			sht40ret = SHT40_Read_Measurement((uint8_t*)sensor1DataBuffer,6);
+			if(sht40ret)
+			{
+				flagErrorCode = ERR_I2C_TIMEOUT_2;
+				break;
+			}
 			sensor1Temperature = (1.0 * 175 * (sensor1DataBuffer[0] * 256 + sensor1DataBuffer[1])) / 65535.0 - 45;
 			sensor1Humidity = (1.0 * 125 * (sensor1DataBuffer[3] * 256 + sensor1DataBuffer[4])) / 65535.0 - 6.0;
 			
@@ -271,6 +292,27 @@ void LED_ErrorCode(uint8_t code)
 	}
 	else if(code == ERR_UART_ERROR) 	// 闪烁五次
 	{
+		LED_Blink();
+		LED_Blink();
+		LED_Blink();
+		LED_Blink();
+		LED_Blink();
+		HAL_Delay(3000);
+	}
+	else if(code == ERR_I2C_TIMEOUT_1) 	// 闪烁六次
+	{
+		LED_Blink();
+		LED_Blink();
+		LED_Blink();
+		LED_Blink();
+		LED_Blink();
+		LED_Blink();
+		HAL_Delay(3000);
+	}
+	else if(code == ERR_I2C_TIMEOUT_2) 	// 闪烁七次
+	{
+		LED_Blink();
+		LED_Blink();
 		LED_Blink();
 		LED_Blink();
 		LED_Blink();
